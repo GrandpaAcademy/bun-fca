@@ -37,6 +37,10 @@ class BunCookieJar {
         }
         try {
             const cookies = this._jar.getCookiesSync(url, options || {});
+            // Match legacy request.jar behavior where toString() returns only key=value
+            cookies.forEach(c => {
+                c.toString = () => c.cookieString();
+            });
             if (cb) cb(null, cookies);
             return cookies;
         } catch (e) {

@@ -3,7 +3,6 @@
 var utils = require("./utils");
 var cheerio = require("cheerio");
 var log = require("npmlog");
-var { checkForFCAUpdate } = require("./checkUpdate");
 const fs = require('fs');
 const path = require('path');
 
@@ -13,16 +12,7 @@ const Boolean_Option = ['online', 'selfListen', 'listenEvents', 'updatePresence'
 global.ditconmemay = false;
 global.stfcaUpdateChecked = false;
 
-// Auto-check for updates on package load (non-blocking)
-/*if (!global.stfcaUpdateChecked) {
-    global.stfcaUpdateChecked = true;
-    const { checkForFCAUpdate } = require("./checkUpdate");
-    setImmediate(() => {
-        checkForFCAUpdate().catch(() => {
-            // Silent fail - don't interrupt user's bot
-        });
-    });
-}*/
+// global.stfcaUpdateChecked = false;
 
 function setOptions(globalOptions, options) {
     Object.keys(options).map(function (key) {
@@ -514,14 +504,6 @@ function loginHelper(appState, email, password, globalOptions, callback, prCallb
 
 
 function login(loginData, options, callback) {
-    // Check for updates (non-blocking, only once per session)
-    /*if (!global.stfcaUpdateChecked) {
-        global.stfcaUpdateChecked = true;
-        checkForFCAUpdate().catch(err => {
-            // Silently ignore update check errors to not block login
-        });
-    }*/
-
     if (utils.getType(options) === 'Function' || utils.getType(options) === 'AsyncFunction') {
         callback = options;
         options = {};
