@@ -1,7 +1,17 @@
-
 # Changelog
 
-All notable changes to ST-FCA will be documented in this file.
+All notable changes to **Bun-FCA** will be documented in this file.
+
+## [2.0.0] - 2026-04-18
+
+### ✨ Major Bun Port
+- 🚀 **Initial Bun Release**: Complete migration of the ST-FCA library to the Bun runtime.
+- ⚡ **Native Networking**: Replaced the legacy `request` and `bluebird` stack with Bun's native `fetch` API.
+- 🍪 **BunCookieJar Implementation**: Engineered a custom synchronous cookie management layer to bridge `tough-cookie` with the library's legacy expectations.
+- 🛡️ **Initialization Hardening**: Improved `appstate` loading reliability and error reporting.
+- 📦 **Dependency Streamlining**: Removed legacy Node-only dependencies and optimized package resolution for Bun.
+
+---
 
 ## [1.0.5] - 2025-01-13
 
@@ -24,42 +34,7 @@ All notable changes to ST-FCA will be documented in this file.
 - Outdated files not being properly replaced
 - Orphaned files from old versions not being cleaned up
 
-## [1.0.4] - 2025-01-13
-
-### Added
-- 🔄 Automatic update checking on package initialization
-- ⚡ Non-blocking update process - doesn't interrupt user's bot startup
-- 🎯 Update check runs once per session to avoid redundant checks
-- 💡 Silent error handling for update checks
-
-### Changed
-- Update checker now integrated directly into login flow
-- Improved user experience with seamless auto-updates
-
-## [1.0.3] - 2025-01-13
-
-### Added
-- 🎨 Enhanced MQTT connection logging with visual indicators
-- 🔄 Auto-reconnect status display
-- 📊 Connection region display
-- ⚡ Automatic update checking and installation
-- 💾 Automatic backup creation before updates
-- 🎯 Better error messages and debugging
-- 📋 Changelog tracking
-- 🌟 Branding: "Maintained & Enhanced by ST | Sheikh Tamim"
-
-### Changed
-- Improved console output with colors and formatting
-- Better connection status messages
-- Enhanced stability and error handling
-
-### Fixed
-- MQTT reconnection reliability
-- Connection timeout handling
-- Error message clarity
-
 ---
 
-**Maintained & Enhanced by ST | Sheikh Tamim**  
-GitHub: https://github.com/sheikhtamimlover/ST-FCA  
-NPM: https://www.npmjs.com/package/stfca
+**Maintained & Ported by Grandpa Academy**  
+GitHub: https://github.com/GrandpaAcademy/bun-fca
